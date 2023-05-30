@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Telegram Chat Bot</title>
+  <style>
+    /* Add some styles to the chat container */
+    .chat-container {
+      width: 400px;
+      height: 500px;
+      border: 1px solid #ccc;
+      overflow: auto;
+      padding: 10px;
+    }
+
+    /* Style for user messages */
+    .user-message {
+      background-color: #eaeaea;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    /* Style for bot messages */
+    .bot-message {
+      background-color: #f0f0f0;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="user-message">
+      <strong>User:</strong> Hello, Bot!
+    </div>
+    <div class="bot-message">
+      <strong>Bot:</strong> Hi there! How can I assist you today?
+    </div>
+  </div>
+
+  <!-- Add an input field for user to type messages -->
+  <input type="text" id="user-input" placeholder="Type your message here...">
+  
+  <!-- Add a button to submit user messages -->
+  <button onclick="sendMessage()">Send</button>
+
+  <script>
+    function sendMessage() {
+      // Get user input
+      var userInput = document.getElementById("user-input").value;
+
+      // Create a new user message element
+      var userMessageElement = document.createElement("div");
+      userMessageElement.className = "user-message";
+      userMessageElement.innerHTML = "<strong>User:</strong> " + userInput;
+
+      // Append the user message to the chat container
+      var chatContainer = document.querySelector(".chat-container");
+      chatContainer.appendChild(userMessageElement);
+
+      // Call the bot API or perform actions based on user input
+      // ...
+
+      // Create a new bot message element
+      var botMessageElement = document.createElement("div");
+      botMessageElement.className = "bot-message";
+      botMessageElement.innerHTML = "<strong>Bot:</strong> This is a bot response.";
+
+      // Append the bot message to the chat container
+      chatContainer.appendChild(botMessageElement);
+
+      // Clear the user input field
+      document.getElementById("user-input").value = "";
+    }
+  </script>
+</body>
+</html>
